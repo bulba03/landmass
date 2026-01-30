@@ -115,7 +115,7 @@ fn setup(
 
 // All the stuff below here is just to allow the doc tests to pass.
 
-fn check_after_navmesh_ready(_: Trigger<NavmeshReady>, mut commands: Commands) {
+fn check_after_navmesh_ready(_: On<NavmeshReady>, mut commands: Commands) {
   // Allow checking three times before failure, in case we need an extra frame
   // for the meshes to propagate.
   commands.insert_resource(CheckCounter(3));

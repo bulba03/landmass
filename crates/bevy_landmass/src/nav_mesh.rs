@@ -20,6 +20,10 @@ pub enum ConvertMeshError {
 /// Converts a Bevy Mesh to a landmass NavigationMesh. This is done naively -
 /// each triangle forms a single polygon in the navigation mesh, which can cause
 /// strange paths to form (agents may take turns inside if wide open regions).
+///
+/// ## Note: The input mesh must be in **clockwise** orientation,
+/// ## with normals facing **inward** (towards the interior of the mesh).
+///
 /// This function is provided as a convenience, and a better method for
 /// generating navigation meshes should be used.
 pub fn bevy_mesh_to_landmass_nav_mesh<CS: CoordinateSystem>(

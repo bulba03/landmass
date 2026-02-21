@@ -22,6 +22,18 @@ Note the `Archipelago` can be created later, even if the agents/islands already
 have an `ArchipelagoRef` to it. Agents/islands will be added once the
 `Archipelago` exists.
 
+## ⚠️ Important: Mesh Orientation and Normals
+
+When converting a mesh to a `NavigationMesh`, **ensure that**:
+- The mesh is defined in **clockwise** vertex order.
+- Normals are facing **inward** (towards the interior of the mesh).
+
+#### Why does this matter?
+- Most 3D editors default to **counter-clockwise** mesh orientation (normals facing outward).
+- Incorrect orientation can cause navigation algorithms to fail (e.g., agents may get stuck or choose invalid paths).
+
+#### How to Check/Fix Orientation?
+- **Blender**: Enable normal display (`Overlay -> Normals`). Red normals indicate inward-facing direction.
 ## Example
 
 ```rust
